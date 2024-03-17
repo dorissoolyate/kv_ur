@@ -30,7 +30,7 @@ def rewenie():
             else:
                 solution_text.config(text=(solution_text['text']+'Уравнение не имеет действительных корней.'))
         except ValueError:
-            messagebox.showerror('Error', 'Please enter valid numbers')
+            messagebox.showerror('Ошибка', 'Введите числа!')
             solution_text.config(text='')
 
 root=Tk()
