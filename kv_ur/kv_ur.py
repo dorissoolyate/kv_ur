@@ -25,22 +25,22 @@ def solve():
             c = float(entry_c.get())
             D = calculate_discriminant(a, b, c)
 
-            solution_text.config(text=f'D = {D:.2f}')  # Display discriminant
+            # Output the discriminant
+            solution_text.config(text=f'Дискриминант (D) = {D:.2f}\n')
 
+            # Check the discriminant to determine the number and type of roots
             if D > 0:
                 # Two real roots
                 x1 = (-b + sqrt(D)) / (2*a)
                 x2 = (-b - sqrt(D)) / (2*a)
-                solution_text.config(text=(solution_text['text'] + f'\nx1 = {x1:.2f}\nx2 = {x2:.2f}'))
+                solution_text.config(text=(solution_text['text'] + f'Уравнение имеет два корня:\nx1 = {x1:.2f}\nx2 = {x2:.2f}'))
             elif D == 0:
                 # One real root
                 x1 = -b / (2*a)
-                solution_text.config(text=(solution_text['text'] + f'\nx = {x1:.2f}'))
+                solution_text.config(text=(solution_text['text'] + f'Уравнение имеет один корень:\nx = {x1:.2f}'))
             else:
                 # Complex roots
-                re = -b / (2*a)
-                im = sqrt(-D) / (2*a)
-                solution_text.config(text=(solution_text['text'] + f'\nx1 = {re:.2f} + {im:.2f}i\nx2 = {re:.2f} - {im:.2f}i'))
+                solution_text.config(text=(solution_text['text'] + 'Уравнение не имеет действительных корней.'))
 
         except ValueError:
             messagebox.showerror('Error', 'Please enter valid numbers')
